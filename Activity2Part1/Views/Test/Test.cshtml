@@ -1,0 +1,67 @@
+﻿@model List<Activity2Part1.Models.UserModel>
+@{
+    <html>
+    <head>
+        <style>
+            .title {
+                text-align: center;
+                font-weight: bold;
+                font-family: Arial;
+                font-size: 24px;
+            }
+
+            .text {
+                text-align: left;
+                font-weight: bold;
+                font-family: Arial;
+                font-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="title">
+                @Html.Label("Welcome to Razor")
+            </div>
+            <div class="text">
+                @Html.Label("My Customers are:")
+            </div>
+            @*Display a table*@
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Email Address
+                        </th>
+                        <th>
+                            Phone Number
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var usr in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => usr.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem =>usr.EmailAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => usr.Phonenumber)
+
+                        </td>
+
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </body>
+    </html>
+    @Html.ActionLink("Refresh Page", "Index", "Test");
+}
